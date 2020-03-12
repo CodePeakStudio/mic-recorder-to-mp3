@@ -15822,7 +15822,8 @@ var MicRecorder = function () {
       // the begining of the recording. It also helps to remove the mouse
       // "click" sound from the output mp3 file.
       startRecordingAt: 300,
-      deviceId: null
+      deviceId: null,
+      bufferSize: 0
     };
 
     this.activeStream = null;
@@ -15856,7 +15857,7 @@ var MicRecorder = function () {
       this.microphone = this.context.createMediaStreamSource(stream);
 
       // Settings a bufferSize of 0 instructs the browser to choose the best bufferSize
-      this.processor = this.context.createScriptProcessor(0, 1, 1);
+      this.processor = this.context.createScriptProcessor(this.config.bufferSize, 1, 1);
 
       // Add all buffers from LAME into an array.
       this.processor.onaudioprocess = function (event) {

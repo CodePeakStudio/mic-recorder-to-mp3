@@ -13,6 +13,7 @@ class MicRecorder {
       // "click" sound from the output mp3 file.
       startRecordingAt: 300,
       deviceId: null,
+      bufferSize: 0,
     };
 
     this.activeStream = null;
@@ -40,7 +41,7 @@ class MicRecorder {
     this.microphone = this.context.createMediaStreamSource(stream);
 
     // Settings a bufferSize of 0 instructs the browser to choose the best bufferSize
-    this.processor = this.context.createScriptProcessor(0, 1, 1);
+    this.processor = this.context.createScriptProcessor(this.config.bufferSize, 1, 1);
 
     // Add all buffers from LAME into an array.
     this.processor.onaudioprocess = (event) => {
@@ -98,7 +99,7 @@ class MicRecorder {
         .then(stream => {
           this.addMicrophoneListener(stream);
           resolve(stream);
-        }).catch(function(err) {
+        }).catch(function (err) {
           reject(err);
         });
     })
