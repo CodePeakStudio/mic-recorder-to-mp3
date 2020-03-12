@@ -1,6 +1,6 @@
 {
   "name": "@codepeakstudio/mic-recorder-to-mp3",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Record your microphone audio input and get an audio/mp3 ouput buffer/blob.",
   "main": "dist/index.js",
   "scripts": {
@@ -9,10 +9,6 @@
     "watch": "rollup -c -w"
   },
   "repository": "git@github.com:CodePeakStudio/mic-recorder-to-mp3.git",
-  "author": "Djalma Araujo <djalma@close.io>",
-  "contributors": [
-    "Vitor Buzinaro <vitor@close.io>"
-  ],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.25.0",
